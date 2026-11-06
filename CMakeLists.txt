@@ -152,6 +152,11 @@ if(BUILD_TESTING)
     add_executable(fast_read_test tests/fast_read.c)
     target_link_libraries(fast_read_test PRIVATE pxlib)
     add_test(NAME fast_read COMMAND fast_read_test)
+
+    add_executable(px_crypt_test tests/px_crypt.c)
+    target_include_directories(px_crypt_test PRIVATE ${CMAKE_SOURCE_DIR}/src)
+    target_link_libraries(px_crypt_test PRIVATE pxlib)
+    add_test(NAME px_crypt COMMAND px_crypt_test)
 endif()
 
 # Link iconv library if needed
